@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+
+$fonts: "Open Sans", sans-serif;
+$white: #fff;
+$black: #000;
+$grey: #505251;
+$light-grey: #C2C2C2;
+$main-color: #00C7E8;
+
+@mixin transform($transforms) {
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: $fonts;
+}
+
+%container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	display: block;
+	background-color: $black;
+	height: 50px;
+	
+	ul {
+		margin: 0 auto;
+		padding: 0;
+		list-style-type: none;
+		float: right;
+	}
+
+	li {
+		float: right;
+	}
+
+	a {
+		line-height: 50px;
+		padding: 0 20px;
+		display: block;
+		text-decoration: none;
+		color: $white;
+		text-transform: uppercase;
+	}
+
+	img {
+		padding: 10px 0;
+	}
+}
+
+.row::before,
+.row::after {
+    content: "";
+    display: table;
+}
+    
+.row::after {
+	clear: both;	
+}
+
+.hero {
+	background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=753&q=80');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	line-height: 50px;
+	width: 100%;
+	max-width: 1400px;
+	overflow: hidden;
+	padding: 100px 0;
+}
+
+.slogan {
+
+	h2 {
+		background-color: rgba(52, 46, 44, .5);
+		float: right;
+		max-width: 800px; 
+		text-transform: uppercase;
+		font-size: 19px;
+		color: $white;
+		line-height: 25px;
+		padding-right: 130px;
+		padding-left: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		@include transform(translate(0, -25px));
+	}
+	span {
+		font-weight: normal;	
+	}
+}
+
+// fonts //
+
+.container-benefits {
+	@extend %container;
+}
+
+[class*="col-"] {
+	padding: 12px;
+	float: left;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} { width: ($i / 12) * 100%; }
+}
+
+@for $i from 1 through 11 {
+  .col-offset-#{$i} { width: ($i / 12) * 100%; }
+}
+
+section {
+
+	.container {
+		margin: 50px auto;	
+		text-align: center;
+	}
+	
+	.col-4 {
+		text-align: center;
+		padding-bottom: 0; 
+	}
+}
+
+.footer {
+
+	.col-4 {
+		text-align: left;	
+	}
+}
+
+h6 {
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+
+i.fa-search, 
+i.fa-cogs, 
+i.fa-laptop {
+	color: $white;
+	padding: 15px;
+	background-color: $black;
+	font-size: 40px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+i.fa-cogs::before {
+	display: inline-block;
+	transform: rotate(-30deg);
+}
+
+.benefits {
+	p {
+		font-size: 8px;
+		color: $light-grey;
+	}
+}
+
+// featured //
+
+h3 {
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.container > p {
+	font-size: 8px;
+	color: $light-grey;
+}
+
+// gallery //
+
+.gallery {
+
+	.icon {
+		position: absolute;
+		background: rgba(0, 0, 0, .5);
+		width: 100%;
+		height: 100%;
+		display: none;
+		text-align: center;
+		line-height: 200px;
+	}
+	
+	[class*="col-"] {
+		padding: 0;
+		position: relative;
+	}
+	
+	img {
+		display: block;
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+}
+
+// workers //
+
+.team {
+
+	i {
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		background-color: $light-grey;
+		border-radius: 50%;
+		display: inline-block;
+		font-weight: bold;
+		color: transparent;
+	}
+	
+	p {
+		font-weight: bold;	
+	}
+}
+
+// image //
+
+.image {
+	background-color: $grey;
+	
+	img {
+		display: block;
+		margin-top: 30px;
+	}
+	
+	h2 {
+		color: $white;
+		text-align: left;
+		font-size: 50px;
+	}
+	
+	p {
+		color: $white;	
+	}
+}
+
+// numbers //
+
+.numbers {
+	
+	h2 {
+		font-size: 60px;
+		font-weight: 800;
+		font-family: $fonts;
+		line-height: 10px;
+	}
+	
+	p {
+		text-transform: uppercase;
+		font-weight: 600;
+		color: $main-color;		
+	}
+	
+}
+
+.footer {
+	background-color: $grey;
+	
+	.container {
+		margin-bottom: 0;	
+	}
+	
+	.col-4 {
+		color: $white;	
+	}
+	
+	h3, 
+	p {
+		text-align: left;	
+	}
+	
+	h3::after {
+		content: "";
+		display: inline-block;
+		height: 2px;
+		width: 50px;
+		background: white;
+		margin-left: 10px;
+		margin-bottom: 5px;
+	}
+	
+	p {
+		color: $light-grey;
+		margin: 0;
+	}
+	
+	i.fa {
+		text-align: center;
+		background-color: $main-color;
+		background-size: 40px;
+		line-height: 40px;
+		width: 40px;
+		color: $white;
+		cursor: pointer;
+		margin-top: 10px;
+		margin-right: 10px;
+		font-size: 20px;
+	}
+		
+	.col-12 {
+		background-color: $black;
+		color: $white;
+		padding: 20px;
+		text-align: center;
+	}
+}	
+
+@media (max-width: 767px) {
+	
+	@for $i from 1 through 12 {
+		.col-s-#{$i} { width: ($i / 12) * 100%; }
+	}
+	
+	header {
+		height: auto;
+		
+		li {
+			float: none;
+			padding: 0;
+			font-size: 18px;
+		}
+		
+		img {
+			width: 100%;
+			padding: 10px;
+			display: block;
+			text-align: center;
+		}
+		
+		ul {
+			float: none;
+			text-align: center;
+		}
+	}
+	
+    .slogan {
+    
+		h2 {	
+			max-width: 80%; 
+			text-transform: uppercase;
+			font-size: 90%;
+			padding-right: 20%;
+		}
+	
+    }
+	
+	.benefit {
+	
+		.fa {
+			size: 100%;
+		}
+		
+		h6 {
+			font-size: 100%;	
+		}
+		
+		p {
+			font-size: 80%;	
+		}
+	}
+	
+	.team {
+	
+		i {
+			background-color: $grey;
+			color: $white;
+		}
+		
+		i,
+		p {
+			font-size: 130%;	
+		}
+		
+	}
+
+	.footer {
+	
+		.media-icon {
+			padding-bottom: 10px;	
+		}
+	
+		span {
+			font-size: 130%;	
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	
+	@for $i from 1 through 12 {
+		.col-m-#{$i} { width: ($i / 12) * 100%; }
+	}
+	
+	header {
+	
+		a:hover {
+			background-color: $grey;
+			color: $main-color;
+		}
+	}
+
+	[class*="col-"] {
+		float: left;
+		min-height: 1px;
+		padding: 10px;
+	}
+	
+	.benefit:hover {
+	
+		.fa {
+			background-color: $main-color;
+		}
+		
+		h6 {
+			color: $main-color;
+		}
+	}
+	
+	.gallery [class*="col-"]:hover .icon {
+		display: block;
+	}
+	
+	i.fa-lg:hover {
+		display: inline-block;
+		text-align: center;
+		background-color: rgba(0, 0, 0, .5);
+	}
+	
+	.team i:hover {
+		background-color: $grey;
+		color: $white;
+	}
+}
