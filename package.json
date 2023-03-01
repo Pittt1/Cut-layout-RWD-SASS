@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "echo": "^0.1.9",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.6"
   }
 }
